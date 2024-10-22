@@ -34,7 +34,28 @@ async function fetchCSV(url) {
     }
 }
 
+function cleanCSV(csvObj) {
+    const cleanedData = csvObj.map(entry => {
+        const cleanedEntry = {};
+
+        // Loop through each key-value pair in the object
+        for (let [key, value] of Object.entries(entry)) {
+            // Clean the key and value by removing \r and trimming whitespace
+            const cleanKey = key.replace(/\r/g, '').trim();
+            const cleanValue = value.replace(/\r/g, '').trim();
+
+            // Add the cleaned key-value pair to the new object
+            cleanedEntry[cleanKey] = cleanValue;
+        }
+
+        return cleanedEntry;
+    });
+
+    return cleanedData; // Return the cleaned data
+}
+
 export const files = {
-    parseCSV: (csvContent)=> parseCSV(csvContent),
-    fetchCSV: (url) => fetchCSV(url)
+    parseCSV: (csvContent) => parseCSV(csvContent),
+    fetchCSV: (url) => fetchCSV(url),
+    cleanCSV: (csvObj) => cleanCSV(csvObj)
 }
