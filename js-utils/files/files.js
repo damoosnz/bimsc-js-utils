@@ -27,7 +27,8 @@ async function fetchCSV(url) {
 
         // Get the CSV content as text
         const csvText = await response.text();
-        return csvText
+        console.log(csvText.slice(-1000))
+        return csvText.trim()
 
     } catch (error) {
         console.error('Error fetching the CSV file:', error);
@@ -41,11 +42,16 @@ function cleanCSV(csvObj) {
         // Loop through each key-value pair in the object
         for (let [key, value] of Object.entries(entry)) {
             // Clean the key and value by removing \r and trimming whitespace
-            const cleanKey = key.replace(/\r/g, '').trim();
-            const cleanValue = value.replace(/\r/g, '').trim();
+            try{
+                const cleanKey = key.replace(/\r/g, '').trim();
+                const cleanValue = value.replace(/\r/g, '').trim();
+                cleanedEntry[cleanKey] = cleanValue;
+            } catch (err) {
+                cleanedEntry[key] = value;
+                console.log(key,value)
+            }
 
-            // Add the cleaned key-value pair to the new object
-            cleanedEntry[cleanKey] = cleanValue;
+            
         }
 
         return cleanedEntry;
