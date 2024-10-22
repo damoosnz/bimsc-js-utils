@@ -27,11 +27,8 @@ async function fetchCSV(url) {
 
         // Get the CSV content as text
         const csvText = await response.text();
+        return csvText
 
-        // Process the CSV text here (e.g., split into rows/columns)
-        const parsedCSV = parseCSV(csvText);
-
-        console.log(parsedCSV); // Now you can work with the parsed data
     } catch (error) {
         console.error('Error fetching the CSV file:', error);
     }
