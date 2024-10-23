@@ -41,7 +41,6 @@ async function fetchCSV(url) {
 
         // Get the CSV content as text
         const csvText = await response.text();
-        console.log(csvText.slice(-1000))
         return csvText.trim()
 
     } catch (error) {
@@ -62,7 +61,6 @@ function cleanCSV(csvObj) {
                 cleanedEntry[cleanKey] = cleanValue;
             } catch (err) {
                 cleanedEntry[key] = value;
-                console.log(key, value)
             }
 
 
