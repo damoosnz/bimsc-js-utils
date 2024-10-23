@@ -1,17 +1,32 @@
+import Papa from 'papaparse';
+
 // Function to parse the CSV text into an array of objects
 function parseCSV(csvText) {
-    const rows = csvText.split('\n');  // Split CSV text into rows
-    const headers = rows[0].split(',');  // Get headers from the first row
-    const data = rows.slice(1);  // Remove header row
 
-    return data.map(row => {
-        const values = row.split(',');  // Split each row into values
-        const obj = {};
-        headers.forEach((header, index) => {
-            obj[header] = values[index];  // Map values to headers
-        });
-        return obj;
+    // Parse the CSV data using PapaParse
+    const parsedData = Papa.parse(csvText, {
+        header: true,          // Treat the first row as headers
+        skipEmptyLines: true,  // Skip any empty rows
+        dynamicTyping: true    // Automatically convert numeric values
     });
+
+    // Log the parsed CSV data
+    // console.log('Parsed CSV data:', parsedData.data);
+
+
+    // return parsedData.data;  // Return parsed data if needed
+    // const rows = csvText.split('\n');  // Split CSV text into rows
+    // const headers = rows[0].split(',');  // Get headers from the first row
+    // const data = rows.slice(1);  // Remove header row
+
+    // return data.map(row => {
+    //     const values = row.split(',');  // Split each row into values
+    //     const obj = {};
+    //     headers.forEach((header, index) => {
+    //         obj[header] = values[index];  // Map values to headers
+    //     });
+    //     return obj;
+    // });
 }
 
 // Function to fetch and process the CSV file
@@ -42,16 +57,16 @@ function cleanCSV(csvObj) {
         // Loop through each key-value pair in the object
         for (let [key, value] of Object.entries(entry)) {
             // Clean the key and value by removing \r and trimming whitespace
-            try{
+            try {
                 const cleanKey = key.replace(/\r/g, '').trim();
                 const cleanValue = value.replace(/\r/g, '').trim();
                 cleanedEntry[cleanKey] = cleanValue;
             } catch (err) {
                 cleanedEntry[key] = value;
-                console.log(key,value)
+                console.log(key, value)
             }
 
-            
+
         }
 
         return cleanedEntry;
