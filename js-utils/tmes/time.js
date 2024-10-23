@@ -27,6 +27,26 @@ function isoDateToDDMMYYYYHHMMampm(dateISOStr) {
 
 }
 
+function isoGetPreviousDay1159pm(dateISOStr) {
+
+    const date = new Date(dateISOStr);
+    // Subtract one day
+    date.setDate(date.getDate() - 1);
+    // Set the time to 11:59 PM (23:59)
+    date.setHours(23, 59, 0, 0); // Hours, Minutes, Seconds, Milliseconds
+    // Return the updated date as an ISO string
+    return date.toISOString();
+
+}
+
 export const times = {
-    isoDateToDDMMYYYYHHMMampm : (dateISOStr)=> isoDateToDDMMYYYYHHMMampm(dateISOStr)
+    convert: {
+        isoDateToDDMMYYYYHHMMampm: (dateISOStr) => isoDateToDDMMYYYYHHMMampm(dateISOStr)
+    },
+    operations: {
+        ISO: {
+            getPreviousDay1159pm: (dateISOStr) => isoGetPreviousDay1159pm(dateISOStr)
+        }
+    }
+
 }
