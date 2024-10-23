@@ -1,13 +1,13 @@
 import Papa from 'papaparse';
 
 // Function to parse the CSV text into an array of objects
-function parseCSV(csvText) {
+function parseCSV(csvText, convertNumber) {
 
     // Parse the CSV data using PapaParse
     const parsedData = Papa.parse(csvText, {
         header: true,          // Treat the first row as headers
         skipEmptyLines: true,  // Skip any empty rows
-        dynamicTyping: true    // Automatically convert numeric values
+        dynamicTyping: convertNumber    // Automatically convert numeric values
     });
 
     // Log the parsed CSV data
@@ -73,7 +73,7 @@ function cleanCSV(csvObj) {
 }
 
 export const files = {
-    parseCSV: (csvContent) => parseCSV(csvContent),
+    parseCSV: (csvContent, convertNumbers) => parseCSV(csvContent, convertNumbers),
     fetchCSV: (url) => fetchCSV(url),
     cleanCSV: (csvObj) => cleanCSV(csvObj)
 }
