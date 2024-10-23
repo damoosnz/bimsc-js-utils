@@ -12,9 +12,8 @@ function parseCSV(csvText) {
 
     // Log the parsed CSV data
     // console.log('Parsed CSV data:', parsedData.data);
+    return parsedData.data;  // Return parsed data if needed
 
-
-    // return parsedData.data;  // Return parsed data if needed
     // const rows = csvText.split('\n');  // Split CSV text into rows
     // const headers = rows[0].split(',');  // Get headers from the first row
     // const data = rows.slice(1);  // Remove header row
