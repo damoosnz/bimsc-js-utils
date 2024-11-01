@@ -69,5 +69,5 @@ export const files = {
     parseCSV: (csvContent, convertNumbers) => parseCSV(csvContent, convertNumbers),
     fetchCSV: (url) => fetchCSV(url),
     cleanCSV: (csvObj) => cleanCSV(csvObj),
-    jsonToHtml : ()=> jsonToHtml(jsonContent)
+    jsonToHtml : (jsonContent)=> jsonToHtml(jsonContent)
 }

@@ -3943,8 +3943,8 @@ function cleanCSV(csvObj) {
   });
   return cleanedData;
 }
-function jsonToHtml(jsonContent2) {
-  const json = JSON.parse(jsonContent2);
+function jsonToHtml(jsonContent) {
+  const json = JSON.parse(jsonContent);
   const htmlString = (0, import_json2html.transform)(json);
   return htmlString;
 }
@@ -3952,7 +3952,7 @@ var files = {
   parseCSV: (csvContent, convertNumbers) => parseCSV(csvContent, convertNumbers),
   fetchCSV: (url) => fetchCSV(url),
   cleanCSV: (csvObj) => cleanCSV(csvObj),
-  jsonToHtml: () => jsonToHtml(jsonContent)
+  jsonToHtml: (jsonContent) => jsonToHtml(jsonContent)
 };
 
 // js-utils/times/time.js
