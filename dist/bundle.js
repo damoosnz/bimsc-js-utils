@@ -3955,7 +3955,7 @@ var files = {
   jsonToHtml: () => jsonToHtml(jsonContent)
 };
 
-// js-utils/tmes/time.js
+// js-utils/times/time.js
 function isoDateToDDMMYYYYHHMMampm(dateISOStr) {
   const date = new Date(dateISOStr);
   const day = String(date.getDate()).padStart(2, "0");
