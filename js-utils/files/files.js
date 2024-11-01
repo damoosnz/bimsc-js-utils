@@ -1,5 +1,4 @@
 import Papa from 'papaparse';
-import { transform } from 'json2html';
 
 // Function to parse the CSV text into an array of objects
 function parseCSV(csvText, convertNumber) {
@@ -60,8 +59,8 @@ function cleanCSV(csvObj) {
 function jsonToHtml(jsonContent) {
 
     const json = JSON.parse(jsonContent)
-    const htmlString = transform(json)
-    return htmlString
+    console.log(json)
+    return json
 
 }
 
