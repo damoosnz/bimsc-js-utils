@@ -562,10 +562,9 @@ function cleanCSV(csvObj) {
   });
   return cleanedData;
 }
-function jsonToHtml(jsonContent) {
-  const json = JSON.parse(jsonContent);
-  console.log(json);
-  return json;
+function jsonToHtml(json) {
+  const jsonObject = JSON.parse(json);
+  return `<pre>${JSON.stringify(jsonObject, null, 2)}</pre>`;
 }
 var files = {
   parseCSV: (csvContent, convertNumbers) => parseCSV(csvContent, convertNumbers),

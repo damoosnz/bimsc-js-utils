@@ -56,12 +56,9 @@ function cleanCSV(csvObj) {
     return cleanedData; // Return the cleaned data
 }
 
-function jsonToHtml(jsonContent) {
-
-    const json = JSON.parse(jsonContent)
-    console.log(json)
-    return json
-
+function jsonToHtml(json) {
+    const jsonObject = JSON.parse(json);
+    return `<pre>${JSON.stringify(jsonObject, null, 2)}</pre>`;
 }
 
 export const files = {
