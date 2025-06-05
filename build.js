@@ -1,7 +1,7 @@
 import esbuild from 'esbuild'
 
 esbuild.build({
-    entryPoints: ['index.js'], // Entry point to your project
+    entryPoints: ['index-browser.js'], // Entry point to your project
     bundle: true, // Bundle the whole project
     outfile: 'dist/bundle.js', // Output bundle file
     format: 'esm', // Output as an ES module (so you can import it)

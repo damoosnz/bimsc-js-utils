@@ -61,7 +61,7 @@ function jsonToHtml(json) {
     return `<pre>${JSON.stringify(jsonObject, null, 2)}</pre>`;
 }
 
-export const files = {
+export const filesBrowser = {
     parseCSV: (csvContent, convertNumbers) => parseCSV(csvContent, convertNumbers),
     fetchCSV: (url) => fetchCSV(url),
     cleanCSV: (csvObj) => cleanCSV(csvObj),

@@ -521,7 +521,7 @@ var require_papaparse_min = __commonJS({
   }
 });
 
-// js-utils/files/files.js
+// js-utils/files/files-browser.js
 var import_papaparse = __toESM(require_papaparse_min(), 1);
 function parseCSV(csvText, convertNumber) {
   const parsedData = import_papaparse.default.parse(csvText, {
@@ -566,7 +566,7 @@ function jsonToHtml(json) {
   const jsonObject = JSON.parse(json);
   return `<pre>${JSON.stringify(jsonObject, null, 2)}</pre>`;
 }
-var files = {
+var filesBrowser = {
   parseCSV: (csvContent, convertNumbers) => parseCSV(csvContent, convertNumbers),
   fetchCSV: (url) => fetchCSV(url),
   cleanCSV: (csvObj) => cleanCSV(csvObj),
@@ -608,9 +608,9 @@ var times = {
   }
 };
 
-// index.js
+// index-browser.js
 var bimscJs = {
-  files,
+  files: filesBrowser,
   times
 };
 export {
