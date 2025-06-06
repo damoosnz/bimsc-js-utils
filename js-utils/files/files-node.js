@@ -10,9 +10,20 @@ const readJsonFile = (file) => {
     return json
 }
 
+const logToJsonFile = (file, log) => {
+    const fileData = readJsonFile = (file)
+    if (!fileData) {
+        writeJsonFile = (file, [log])
+    } else {
+        fileData.push(log)
+        writeJsonFile = (file, fileData)
+    }
+}
+
 
 export const filesNode = {
     writeJsonFile,
-    readJsonFile
+    readJsonFile,
+    logToJsonFile
 }
 
