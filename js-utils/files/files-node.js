@@ -11,13 +11,12 @@ const readJsonFile = (file) => {
 }
 
 const logToJsonFile = (file, log) => {
-    const fileData = readJsonFile = (file)
-    if (!fileData) {
-        writeJsonFile = (file, [log])
-    } else {
+    let fileData = []
+    try {
+        fileData = readJsonFile(file)
+    } catch (err) { }
         fileData.push(log)
         writeJsonFile = (file, fileData)
-    }
 }
 
 
