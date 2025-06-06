@@ -15,8 +15,8 @@ const logToJsonFile = (file, log) => {
     try {
         fileData = readJsonFile(file)
     } catch (err) { }
-        fileData.push(log)
-        writeJsonFile = (file, fileData)
+    fileData.push(log)
+    writeJsonFile(file, fileData)
 }
 
 
