@@ -19,16 +19,21 @@ const logToJsonFile = (file, log) => {
     writeJsonFile(file, fileData)
 }
 
-const readFile = async (file) => {
+const readFileContents = async (file) => {
     const fileContents = fs.readFileSync(file, 'utf-8');
     return fileContents
 }
+
+const createReadStream = (file, encoding = null) => {
+  return fs.createReadStream(file, encoding ? { encoding } : undefined);
+};
 
 
 export const filesNode = {
     writeJsonFile,
     readJsonFile,
     logToJsonFile,
-    readFile
+    readFileContents,
+    createReadStream,
 }
 
