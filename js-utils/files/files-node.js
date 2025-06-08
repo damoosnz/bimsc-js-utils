@@ -19,10 +19,16 @@ const logToJsonFile = (file, log) => {
     writeJsonFile(file, fileData)
 }
 
+const readFile = async (file) => {
+    const fileContents = await fs.readFileSync(filePath, 'utf-8');
+    return fileContents
+}
+
 
 export const filesNode = {
     writeJsonFile,
     readJsonFile,
-    logToJsonFile
+    logToJsonFile,
+    readFile
 }
 
