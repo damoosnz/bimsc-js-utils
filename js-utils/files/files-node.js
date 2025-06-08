@@ -20,7 +20,7 @@ const logToJsonFile = (file, log) => {
 }
 
 const readFile = async (file) => {
-    const fileContents = await fs.readFileSync(filePath, 'utf-8');
+    const fileContents = fs.readFileSync(filePath, 'utf-8');
     return fileContents
 }
 
