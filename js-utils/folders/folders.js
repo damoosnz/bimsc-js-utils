@@ -16,6 +16,19 @@ const listFilesInFolder = (folderPath => {
 
 })
 
+const moveFiletoFolder = (file, toFolder) => {
+    try {
+        const fileName = path.basename(file); // get just the file name
+        const destination = path.join(toFolder, fileName);
+
+        fs.renameSync(file, destination); // move the file
+        console.log(`Moved ${file} → ${destination}`);
+    } catch (err) {
+        console.error(`Failed to move file: ${err.message}`);
+    }
+}
+
 export const folders = {
-    listFilesInFolder
+    listFilesInFolder,
+    moveFiletoFolder
 }
